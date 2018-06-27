@@ -1,0 +1,109 @@
+
+<html>
+<head><title>Currency Converter App</title>
+
+   <style>
+       body{
+    margin:0px;
+}
+.mainbody{
+    background-color:gray;
+    width:50%;
+    height: auto; 
+    padding:10px;
+    color: skyblue;
+    text-align: center;
+    }
+#form1{
+    padding:5px;
+    margin:15px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: oblique;
+    height:auto;
+    
+}
+#form1 input{
+    
+    width: 30%;
+    height:5%;
+    border-radius: 3%;
+    color: black;
+    padding:10px;
+    margin:20px;
+    border: 1px solid white;
+}
+#form1 select{
+    
+    width: 30%;
+    height:5%;
+    border-radius: 3%;
+    color: black;
+    padding:10px;
+    margin:20px;
+    border: 1px solid white;
+}
+
+#form1 input[type="submit"]{
+    background-color: brown;
+    width: 30%;
+    height:5%;
+    border-radius: 3%;
+    border: 1px solid brown;
+    color: white;
+    font-display: bold;
+}
+#form1 input[type="submit"]:hover {
+    background-color:skyblue;
+    color:;
+    border: 1px solid skyblue;
+}
+    </style>
+
+    <script src="/idb/index.js"> </script>
+    
+</head>
+<body>
+    <div class="mainbody">
+        <h3>Currency Converter Application</h3>
+        <form id="form1" name="form1" action="#" enctype="multipart/form-data" >
+        <input type="text" name="Amount"  placeholder="Amount" required><br>
+        <label>select currency</label><br>
+        <select>
+           <option value="NGN">NGN</option>
+           <option value="USD">USD</option>
+           <option value="EUR">EUR</option>
+           <option value="CFA">CFA</option>
+        </select><br>
+
+        <label>conversion currency</label><br>
+        <select>
+           <option value="NGN">NGN</option>
+           <option value="USD">USD</option>
+           <option value="EUR">EUR</option>
+           <option value="CFA">CFA</option>
+        </select> <br>
+        
+        <input type="submit" name="submit" value="Convert" ><br>
+        <input type="text" name="output" >
+
+    
+        </form>
+
+
+
+    </div>
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+</html>
