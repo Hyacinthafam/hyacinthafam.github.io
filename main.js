@@ -10,7 +10,7 @@ class CurrencyConverter {
         if (!navigator.serviceWorker) return;
         navigator.serviceWorker.register('sw.js').then(reg => {});
     } 
-    /*  indexDB database */
+    
     openDatabase() {
         if (!('indexedDB' in window)) {
             console.log('This browser doesn\'t support IndexedDB');
@@ -53,7 +53,7 @@ class CurrencyConverter {
             console.log('list of currencies added to cache (db)');
          }).catch(error => console.log('Something went wrong: '+ error));
     }
-    /* conversion rate */
+    
     addCurrencyRateToCache(rate, fromCurrency, toCurrency) {
         this.dbPromise.then(db => {
             if (!db) return;
@@ -157,7 +157,7 @@ class CurrencyConverter {
             document.getElementById('result').innerHTML = `${outputResult.toCurrency} ${outputResult.result.toFixed(2)}`;
         }
         else if(wht = 'offlineFailure') {
-            document.getElementById('result').innerHTML = 'result';
+            document.getElementById('result').innerHTML = '';
         }
 
         if(msg !== ''){
@@ -205,18 +205,14 @@ class CurrencyConverter {
     const converter = new CurrencyConverter(); 
     document.getElementById('btnconvert').addEventListener('click', () =>{
         let msg = '';
-         converter.postToHTMLPage('msg', 'conversion in progress, please wait...');
+         converter.postToHTMLPage('msg', 'conversion in progress, chill please...');
         
         const amount = document.getElementById('amount').value;
         const fromCurrency = document.getElementById('from-currency').value;
         const toCurrency = document.getElementById('to-currency').value;
     
         
-        if(amount === '' || amount === 0 || isNaN(amount)) msg = 'Must be a number greater than 0.';
-        else if(fromCurrency ==='') msg = 'Specify the currency to convert from.';
-        else if(toCurrency ==='') msg = 'Specify the currency to convert to.';
-        else if (fromCurrency === toCurrency) msg = 'Do choose a different currency to convert to.';
-        else {
+        {
             
             converter.getConversionRate(fromCurrency,toCurrency).then( response =>{ 
                  const rate = response.currencyRate;
