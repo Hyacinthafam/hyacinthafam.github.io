@@ -2,12 +2,11 @@ const staticCacheName = 'CurrencyConverterHyacinth-static-v4';
 
 
 const filesToCache = [
-  
+  './',
   './index.html',
   './main.js',
   './layout.css',
   './manifest.json',
-  
   
 ];
 
