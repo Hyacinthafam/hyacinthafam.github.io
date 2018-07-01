@@ -120,7 +120,7 @@ class CurrencyConverter {
                     //add currency to the select field
                     this.appendElement(selectFields,option);
                 }
-                this.postToHTMLPage('msg', 'youre offline');
+                this.postToHTMLPage('msg', 'No internet connection');
             });
           });
     }
@@ -204,7 +204,7 @@ class CurrencyConverter {
 
 (function(){
     const converter = new CurrencyConverter(); 
-    document.getElementById('submit') .addEventListener('click', () =>{
+    document.getElementById('convert').addEventListener('click', () =>{
         let msg = '';
          converter.postToHTMLPage('msg', 'conversion in progress, please wait...');
         // get form fields
@@ -229,7 +229,7 @@ class CurrencyConverter {
                     converter.postToHTMLPage('result', msg, {result, toCurrency}); 
                     if(appStatus ==='online')  converter.addCurrencyRateToCache(rate, fromCurrency, toCurrency); 
                 }
-                else converter.postToHTMLPage('offlineFailure', 'You are offline.');
+                else converter.postToHTMLPage('offlineFailure', 'No Internet Connection');
             }).catch( error => {
                 console.log('No rate was found in cache: ');
                 converter.postToHTMLPage('', error);

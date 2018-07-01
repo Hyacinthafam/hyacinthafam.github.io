@@ -39,7 +39,7 @@ body{
     border: 1px solid white;
 }
 
-#form1 input[type="submit"]{
+#form1 input[type="button"]{
     background-color: brown;
     width: 30%;
     height:5%;
@@ -48,15 +48,15 @@ body{
     color: white;
     font-display: bold;
 }
-#form1 input[type="submit"]:hover {
+#form1 input[type="button"]:hover {
     background-color:skyblue;
-    color:;
+    
     border: 1px solid skyblue;
 }
 .msg-display{
     width: auto;
     height: auto;
-    color: white;
+    font-display: white;
     font-size: 10px;
-    
+
 }
