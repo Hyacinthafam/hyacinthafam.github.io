@@ -212,7 +212,11 @@ class CurrencyConverter {
         const toCurrency = document.getElementById('to-currency').value;
     
         
-        {
+        if(amount === '' || amount === 0 || isNaN(amount)) msg = 'Must be a number greater than 0.';
+        else if(fromCurrency ==='') msg = 'Specify the currency to convert from.';
+        else if(toCurrency ==='') msg = 'Specify the currency to convert to.';
+        else if (fromCurrency === toCurrency) msg = 'Do choose a different currency to convert to.';
+        else {
             
             converter.getConversionRate(fromCurrency,toCurrency).then( response =>{ 
                  const rate = response.currencyRate;
