@@ -53,3 +53,10 @@ body{
     color:;
     border: 1px solid skyblue;
 }
+.msg-display{
+    width: auto;
+    height: auto;
+    color: white;
+    font-size: 10px;
+    
+}

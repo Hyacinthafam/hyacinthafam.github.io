@@ -5,7 +5,7 @@ class CurrencyConverter {
         this.dbPromise = this.openDatabase();
         this.getAllCurrencies();
     }
-    /*  service worker*/
+    
     registerServiceWorker() {
         if (!navigator.serviceWorker) return;
         navigator.serviceWorker.register('sw.js').then(reg => {});
@@ -91,8 +91,8 @@ class CurrencyConverter {
                    const currencyRate  = RateObj.rate;
                     return {currencyRate, appStatus: 'offline'}; 
          }).catch(error => {
-             console.log('Sorry! No rate was found in the cache:');
-             this.postToHTMLPage('','No rate was found in the cache');
+             console.log(' No rate was found in cache:');
+             this.postToHTMLPage('','No rate was found in cache');
              return error;
         });
     }
@@ -144,10 +144,10 @@ class CurrencyConverter {
             }
             
             this.addCurrenciesToCache(currencies); 
-            this.postToHTMLPage('msg','you are online');
+            this.postToHTMLPage('you are online');
            
         }).catch( error => {
-            console.log('It looks like your are offline or have a bad network: '+ error);
+            console.log('Offline: '+ error);
             this.showCachedCurrencies(); 
         });
     }
@@ -204,13 +204,13 @@ class CurrencyConverter {
 
 (function(){
     const converter = new CurrencyConverter(); 
-    document.getElementById('btnConvert').addEventListener('click', () =>{
+    document.getElementById('submit').addEventListener('click', () =>{
         let msg = '';
          converter.postToHTMLPage('msg', 'conversion in progress, please wait...');
         // get form fields
         const amount = document.getElementById('amount').value;
-        const fromCurrency = document.getElementById('from_cur').value;
-        const toCurrency = document.getElementById('to_cur').value;
+        const fromCurrency = document.getElementById('from-currency').value;
+        const toCurrency = document.getElementById('to-currency').value;
     
         // validations
         if(amount === '' || amount === 0 || isNaN(amount)) msg = 'Must be a number greater than 0.';
@@ -229,9 +229,9 @@ class CurrencyConverter {
                     converter.postToHTMLPage('result', msg, {result, toCurrency}); 
                     if(appStatus ==='online')  converter.addCurrencyRateToCache(rate, fromCurrency, toCurrency); 
                 }
-                else converter.postToHTMLPage('offlineFailure', 'You are offline. Go online to fully experience the functionalities of this app.');
+                else converter.postToHTMLPage('offlineFailure', 'You are offline.');
             }).catch( error => {
-                console.log('No rate was found in the cache: ');
+                console.log('No rate was found in cache: ');
                 converter.postToHTMLPage('', error);
             });
         }
