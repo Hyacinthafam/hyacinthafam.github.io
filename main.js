@@ -204,7 +204,7 @@ class CurrencyConverter {
 
 (function(){
     const converter = new CurrencyConverter(); 
-    document.getElementById('submit').addEventListener('click', () =>{
+    document.getElementById('submit') .addEventListener('click', () =>{
         let msg = '';
          converter.postToHTMLPage('msg', 'conversion in progress, please wait...');
         // get form fields
