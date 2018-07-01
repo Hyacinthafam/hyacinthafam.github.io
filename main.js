@@ -207,12 +207,12 @@ class CurrencyConverter {
     document.getElementById('convert').addEventListener('click', () =>{
         let msg = '';
          converter.postToHTMLPage('msg', 'conversion in progress, please wait...');
-        // get form fields
+        
         const amount = document.getElementById('amount').value;
         const fromCurrency = document.getElementById('from-currency').value;
         const toCurrency = document.getElementById('to-currency').value;
     
-        // validations
+        
         if(amount === '' || amount === 0 || isNaN(amount)) msg = 'Must be a number greater than 0.';
         else if(fromCurrency ==='') msg = 'Specify the currency to convert from.';
         else if(toCurrency ==='') msg = 'Specify the currency to convert to.';
