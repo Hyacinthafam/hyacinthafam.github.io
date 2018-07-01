@@ -6,6 +6,7 @@ const filesToCache = [
   './index.html',
   './main.js',
   './layout.css',
+  './manifest.json',
   
   
 ];
