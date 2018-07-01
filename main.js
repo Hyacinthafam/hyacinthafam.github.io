@@ -158,7 +158,7 @@ class CurrencyConverter {
             document.getElementById('result').innerHTML = `${outputResult.toCurrency} ${outputResult.result.toFixed(2)}`;
         }
         else if(wht = 'offlineFailure') {
-            document.getElementById('result').innerHTML = '0.00';
+            document.getElementById('result').innerHTML = 'result';
         }
 
         if(msg !== ''){
