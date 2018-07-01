@@ -29,7 +29,7 @@ class CurrencyConverter {
                 }
          });
     }
-    /* list of currencies to database store */
+    
     addCurrenciesToCache(currencies) {
         this.dbPromise.then(db => {
             if (!db) return;
@@ -76,8 +76,7 @@ class CurrencyConverter {
             console.log('Currency rate for ' + fromCurrency + ' and ' + toCurrency + ' added to cache');
          }).catch(error => console.log('Something went wrong: '+ error));
     }
-    //+
-    // get cached currency rate
+    
     getCurrencyRateFromCache(fromCurrency, toCurrency) {
        return this.dbPromise.then(db => {
             if (!db) return;
@@ -117,7 +116,7 @@ class CurrencyConverter {
                     else option.text = `${currency.currencyName} (${currency.id})`;
                     option.value = currency.id;
 
-                    //add currency to the select field
+                    
                     this.appendElement(selectFields,option);
                 }
                 this.postToHTMLPage('msg', 'No internet connection');
@@ -152,7 +151,7 @@ class CurrencyConverter {
         });
     }
     
-    // Method for html page/ DOM communication
+   
     postToHTMLPage(wht, msg, outputResult = {}) {
        if(wht === 'result') { 
             document.getElementById('result').innerHTML = `${outputResult.toCurrency} ${outputResult.result.toFixed(2)}`;
