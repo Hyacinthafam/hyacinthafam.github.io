@@ -203,7 +203,7 @@ class CurrencyConverter {
 
 (function(){
     const converter = new CurrencyConverter(); 
-    document.getElementById('convert').addEventListener('click', () =>{
+    document.getElementById('btnconvert').addEventListener('click', () =>{
         let msg = '';
          converter.postToHTMLPage('msg', 'conversion in progress, please wait...');
         
